@@ -1,0 +1,66 @@
+<h2>Jugadores | <%= link_to 'Nuevo Jugador', welcome_new_path %></h2>
+<hr></hr>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Dinero</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.apellido %></td>
+        <td><%= usuario.Dinero %></td>
+        <td><%= link_to 'Modificar Jugador', welcome_viewUpdate_path(usuario.id) %></td>
+        <td><%= link_to 'Eliminar Jugador', welcome_delete_path(usuario.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2>Apuestas</h2>
+<hr></hr>
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Apuesta</th>
+			<th>Color</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @apuestas.each do |apuesta| %>
+			<tr>
+				<td><%= apuesta["Nombre"] %></td>
+				<td><%= apuesta["Apellido"] %></td>
+				<td><%= apuesta["Apuesta"] %></td>
+				<td><%= apuesta["Color"] %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<h2>Resultado: <%= @resultado_ruleta %></h2>
+<hr></hr>
+<h2>Ganadores: </h2>
+<% if(@ganadores.size>0) %>
+	<% @ganadores.each do |ganadores| %>
+		<h3>
+			<%= ganadores["Nombre"] %> Gana: <%= ganadores["Ganancia"] %>
+		</h3>
+		<hr></hr>
+	<% end %>
+<% end %>
+<h2>Perdedores: </h2>
+<% if(@perdedores.size>0) %>
+	<% @perdedores.each do |perdedores| %>
+		<h3>
+			<%= perdedores["Nombre"] %> Pierde: <%= perdedores["Perdida"] %>
+		</h3>
+		<hr></hr>
+	<% end %>
+<% end %>

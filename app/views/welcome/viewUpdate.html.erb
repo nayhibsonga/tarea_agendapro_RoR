@@ -1,0 +1,22 @@
+<h1>Modificar Jugador:</h1>
+<%= form_for :usuario, url: welcome_update_path do |f| %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, value:@nombre_apostador %>
+  </p>
+
+  <p>
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido, value:@apellido_apostador %>
+  </p>
+  <p>
+    <%= f.label :Dinero %><br>
+    <%= f.text_field :Dinero, value:@dinero_apostador %>
+  </p>
+  <p>
+    <%= f.hidden_field :id, value:@id_obtenido %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

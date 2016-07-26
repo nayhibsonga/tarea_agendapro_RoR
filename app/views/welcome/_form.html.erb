@@ -1,0 +1,18 @@
+<%= form_for :usuario, url: welcome_create_path do |f| %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </p>
+  <p>
+    <%= f.label :Dinero %><br>
+    <%= f.text_field :Dinero, value:10000 %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
